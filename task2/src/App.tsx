@@ -10,7 +10,7 @@ function App() {
       setSecCount(secCount + 1)
     },
     // Delay in milliseconds or null to stop it
-    isPlaying ? 1000 : null,
+    isPlaying ? 1000 : null, // I choose change for every seconds
   )
   const start = () => setIsPlaying(true);
   const end = () => setIsPlaying(false);

@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef } from "react"
 
 export function useInterval(callback: () => void, delay: number | null) {
-  const savedCallback = useRef(callback)
+  const savedCallback = useRef(callback);
   // I should check if lasted callback has been change
   useLayoutEffect(() => {
-    savedCallback.current = callback
-  }, [callback])
+    savedCallback.current = callback;
+  }, [callback]);
 
   // Set up the interval.
   useEffect(() => {
@@ -16,11 +16,11 @@ export function useInterval(callback: () => void, delay: number | null) {
     }
 
     const id = setInterval(() => {
-      savedCallback.current()
+      savedCallback.current();
     }, delay)
 
     return () => {
-      clearInterval(id)
+      clearInterval(id);
     }
-  }, [delay])
+  }, [delay]);
 }
