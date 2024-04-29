@@ -1,30 +1,8 @@
-# React + TypeScript + Vite
+### About Task
+1. I had choose the default settings with vite. I would like to develop whit the task request ASAP. 
+  But, I'm still like tailwindcss solution.  
+  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Because the task1 was simple question. So, my solution will that simple too. 
+  I don't use the global state management tool to manage our two simple state that didn't represent I don't support the state management tool. On the contrary, I am a big proponent of using state management tools (ex: redux-toolkit, zustand...). Here's my ![technical article](https://ithelp.ithome.com.tw/users/20129020/ironman/5360) which was teaching the Taiwanese developer to understanding how Redux work & how to use it to work with our project.
+  

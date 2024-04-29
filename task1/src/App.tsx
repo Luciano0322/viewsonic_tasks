@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [isEdit, setIsEdit] = useState(true);
+  const [isResize, setIsResize] = useState(false);
+  const toggleTextField = () => setIsEdit(pre => !pre);
+  const toggleResize = () => setIsResize(pre => !pre);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="container">
+      <h1>Task1</h1>
+      <div className={`wrapper ${isResize ? "resize": ""}`}>
+        <div className="field">
+          <input className="text-field" type="text" disabled={isEdit} />
+        </div>
+        <div className="btns">
+          <button className="btn" onClick={toggleTextField}>edit</button>
+          <button className="btn" onClick={toggleResize}>resize</button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </main>
   )
 }
 
