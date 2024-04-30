@@ -18,6 +18,8 @@ You can accomplish this task using any JavaScript framework you like, or even wi
 
 Expect: The buttons' size should be fixed, and the text field should automatically resize when the outer frame or inner text changes.
 
+### ans: Check task1 folder
+
 ### Task 2: Coding assignment 2
 
 You can accomplish this task using any JavaScript framework you like, or even with pure JavaScript.
@@ -27,6 +29,8 @@ You can accomplish this task using any JavaScript framework you like, or even wi
     -   Button 2: With the text "end".
 
 Expect: Click button 1 first, wait a few seconds, and then click button 2. The browser should display the time duration between these two click.
+
+### ans: Check task2 folder
 
 ### Task 3: Understanding
 
@@ -73,3 +77,5 @@ function function2() {
     ctrl.abort();
 }
 ```
+
+### ans: Check task3 folder & ans.js file 
