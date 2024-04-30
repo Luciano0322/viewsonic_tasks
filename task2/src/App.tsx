@@ -1,34 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useInterval } from './useInterval';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [secCount, setSecCount] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  useInterval(
+    () => {
+      setSecCount(secCount + 1)
+    },
+    // Delay in milliseconds or null to stop it
+    isPlaying ? 1000 : null, // I choose change for every seconds
+  )
+  const start = () => setIsPlaying(true);
+  const end = () => setIsPlaying(false);
+  const clear = () => setSecCount(0);
   return (
-    <>
+    <main className="container">
+      <h1>Task2</h1>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <p>wait seconds...</p>
+        <p>{secCount}</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <button className="btn" onClick={start} disabled={secCount!==0}>start</button>
+      <button className="btn" onClick={end}>end</button>
+      {secCount!==0 && !isPlaying && <button className="btn" onClick={clear}>clear</button>}
+    </main>
   )
 }
 
