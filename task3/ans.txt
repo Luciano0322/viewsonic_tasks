@@ -1,0 +1,26 @@
+1.  function1 is a generator function in JavaScript, typically used in Redux-Saga to handle side effects in a Redux application. 
+    This function initiates an HTTP POST request to a specified URL using the action.payload as the request body. It utilizes an 
+    AbortController to potentially cancel the request. Upon successfully completing the request, it dispatches an action to 
+    update the state through a reducer (indicated by /** reducer 1 */). If an error occurs during the request and the error 
+    contains a response (e.response), it dispatches another action to handle the error state via a different reducer (/** reducer
+    2 */). Finally, if the request was aborted, it dispatches yet another action to handle the aborted state (/** reducer 3 */).
+
+2.  Yes, it's possible to stop what function1 is doing. The AbortController used in function1 is controlled externally by function2, 
+    which calls ctrl.abort(). This aborts the HTTP request being handled in function1. When the abort() method is invoked, the fetch 
+    request associated with the ctrl.signal is cancelled, and if this happens, the catch block in function1 captures this as an abort
+    exception. The finally block checks if the request was aborted (ctrl.signal.aborted) and then performs the respective cleanup or 
+    state update.
+
+3.  a. Scope of ctrl: Currently, ctrl is defined globally, which can lead to issues if multiple instances of function1 are running 
+      simultaneously, as they would share the same AbortController. This should be scoped locally within each instance of function1 
+      to ensure that abort signals are managed on a per-instance basis. if you don't mind please read my medium blog ![link](https://medium.com/@LeeLuciano/%E9%9D%A2%E8%A9%A6%E5%8F%8D%E6%89%8B%E6%8B%8D-closure-979177721a76)
+
+    b. Error Handling: The error handling can be expanded to better differentiate between types of errors (network errors, aborts, 
+      HTTP errors). Using more specific checks or error types might provide better management and reaction to different conditions.
+      Can check those grate third party library ex: rtk-query, tanstack-query(react-query).
+    c. Config Object Enhancements: It's possible to refactor the config object setup or externalize it into a utility function if 
+      similar requests are made elsewhere in the application. This can reduce redundancy and improve code manageability.
+
+    d. I still prefer rxjs solution. The observer will give you pull-base system & push-base system to check the data. If you didn't
+      like object-oriented way then you could check ![this article](https://dev.to/ryansolid/building-a-reactive-library-from-scratch-1i0p)
+      This is why the signal will be so pop in front end dev community. 
