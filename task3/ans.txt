@@ -22,5 +22,5 @@
       similar requests are made elsewhere in the application. This can reduce redundancy and improve code manageability.
 
     d. I still prefer rxjs solution. The observer will give you pull-base system & push-base system to check the data. If you didn't
-      like object-oriented way then you could check ![this article](https://dev.to/ryansolid/building-a-reactive-library-from-scratch-1i0p)
+      like object-oriented way then you could check [this article](https://dev.to/ryansolid/building-a-reactive-library-from-scratch-1i0p)
       This is why the signal will be so pop in front end dev community. 
